@@ -1,0 +1,115 @@
+swagger: "2.0"
+
+info:
+  version: 1.0.0
+  title: Patient keeping API
+  description: A simple APIs to keep the Patient details
+
+schemes:
+  - https
+host: localhost:3000
+basePath: /api
+
+paths:
+  /patients:
+    get:
+      summary: Gets all the Patients
+      description: Returns a list containing all Patients.
+      responses:
+        200:
+          description: A list of Patients
+          schema:
+            type: array
+            items:
+              properties:
+                name:
+                  type: string
+                outstanding:
+                  type: number
+    post:
+      summary: Add the new Patient
+      description: Adds a new Patient into the database.
+      responses:
+        200:
+          description: A details about added patient.
+          schema:
+            type: array
+            items:
+              properties:
+                name:
+                  type: string
+                outstanding:
+                  type: number
+          400:
+            description: Bad request for adding a patient.
+  /patients/{ID}:
+    get:
+      summary: Gets a Patient
+      description: Returns a single Patient for its ID.
+      parameters:
+        - name: ID
+          in: path
+          required: true
+          description: The Patient's ID
+          type: string
+      responses:
+        200:
+          description: A list of Patients
+          schema:
+            type: array
+            items:
+              properties:
+                name:
+                  type: string
+                outstanding:
+                  type: number
+        404:
+          description: The Patient does not exists.
+    patch:
+      summary: Updates the Attributes of the Patient
+      description: Updates the details of the Patient and returns the updated Patient.
+      parameters:
+        - name: ID
+          in: path
+          required: true
+          description: The Patient's ID
+          type: string
+      responses:
+        200:
+          description: A Patient
+          schema:
+            type: array
+            items:
+              properties:
+                name:
+                  type: string
+                outstanding:
+                  type: number
+        404:
+          description: The Patient does not exists for this ID.
+        400:
+          description: Bad request to update the existing Patient.
+    delete:
+      summary: Delete the Patient of the give ID
+      description: Deletes the Patient and returns the information of the deleted Patient.
+      parameters:
+        - name: ID
+          in: path
+          required: true
+          description: The Patient's ID
+          type: string
+      responses:
+        200:
+          description: A Patient
+          schema:
+            type: array
+            items:
+              properties:
+                name:
+                  type: string
+                outstanding:
+                  type: number
+        404:
+          description: The Patient does not exists for this ID.
+        400:
+          description: Bad request to delete the Patient. 
