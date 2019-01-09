@@ -24,6 +24,8 @@ paths:
               properties:
                 name:
                   type: string
+                age:
+                  type: number
                 outstanding:
                   type: number
     post:
@@ -38,6 +40,8 @@ paths:
               properties:
                 name:
                   type: string
+                age:
+                  type: number
                 outstanding:
                   type: number
           400:
@@ -61,6 +65,8 @@ paths:
               properties:
                 name:
                   type: string
+                age:
+                  type: number
                 outstanding:
                   type: number
         404:
@@ -83,6 +89,8 @@ paths:
               properties:
                 name:
                   type: string
+                age:
+                  type: number
                 outstanding:
                   type: number
         404:
@@ -107,9 +115,11 @@ paths:
               properties:
                 name:
                   type: string
+                age:
+                  type: number
                 outstanding:
                   type: number
         404:
           description: The Patient does not exists for this ID.
         400:
-          description: Bad request to delete the Patient. 
+          description: Bad request to delete the Patient.
